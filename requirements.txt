@@ -1,6 +1,8 @@
-Flask
+flask
+torch==2.2.0+cpu
+torchvision==0.17.1+cpu
 numpy
-torch
-opencv-python
+opencv-python-headless
 Pillow
-gunicorn
+pyyaml
+werkzeug

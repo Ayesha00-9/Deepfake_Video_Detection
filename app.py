@@ -266,10 +266,9 @@ from torchvision import transforms
 # ---------------- FLASK ----------------
 app = Flask(__name__)
 
-UPLOAD_FOLDER = "uploads"
+UPLOAD_FOLDER = "/tmp/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
-
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDERs
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # ---------------- GLOBAL STATS ----------------
