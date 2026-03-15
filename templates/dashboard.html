@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Deepfake Detection</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #eef1f6;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 230px;
+            height: 100%;
+            background: linear-gradient(180deg, #1d2671, #283593);
+            color: white;
+            padding-top: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 14px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .sidebar a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .main {
+            margin-left: 230px;
+            padding: 30px;
+        }
+
+        .header {
+            font-size: 24px;
+            color: #1d2671;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, #1d2671, #c33764);
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 32px;
+            color: #1d2671;
+        }
+
+        .card p {
+            margin-top: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .btn {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 12px 25px;
+            background: #1d2671;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #16205c;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>DeepTrace</h2>
+    <a href="/">Dashboard</a>
+    <a href="/detect">Detection</a>
+</div>
+
+<div class="main">
+    <div class="header">System Overview</div>
+
+    <div class="cards">
+        <div class="card">
+            <h3>{{ total_videos }}</h3>
+            <p>Total Videos Analyzed</p>
+        </div>
+
+        <div class="card">
+            <h3>{{ fake_count }}</h3>
+            <p>Fake Videos Detected</p>
+        </div>
+
+        <div class="card">
+            <h3>{{ real_count }}</h3>
+            <p>Real Videos Detected</p>
+        </div>
+
+        <div class="card">
+            <h3>{{ accuracy }}%</h3>
+            <p>Model Accuracy</p>
+        </div>
+    </div>
+
+    <a href="/detect" class="btn">Start Video Detection</a>
+</div>
+
+</body>
+</html>
